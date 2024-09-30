@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+    text-decoration: none;
+}
+
+:root {
+    --escuro: #1C1C2D;
+    --destaque: #FF6F00;
+    --cinza: #8A8A8A;
+}
+
+header {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-contents{
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    height: 5vh;
+    justify-content: space-between;
+    color: white;
+    background-color: var(--escuro);
+}
+
+.logo-container {
+    display: flex;
+    gap: 20px;
+}
+
+.logo{
+    width: 36px;
+}
+
+.header-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.header-links > a  {
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    width: 36px;
+    height: 36px;
+}
+
+.header-links > a > img {
+    align-self: center  ;
+    border-radius: 100px;
+    border: 1px solid white;
+    width: 36px;
+}
+
+.searchbar {
+    justify-self: end;
+    width: 30%;
+    height: 80%;
+    display: flex;
+    padding: 20px 10px 20px 20px;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid white;
+    border-radius: 8px;
+}
+
+.searchbar > input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.searchbar > input::placeholder {
+    color: white;
+    font-weight: 550;
+}
+
+nav {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: var(--destaque);
+}
+
+nav > ul {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    display: flex;
+}
+
+nav > ul > a {
+    font-weight: 550;
+    color: black;
+    text-decoration: none;
+
+}
