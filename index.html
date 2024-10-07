@@ -23,14 +23,36 @@
                 <a href="#"><img src="img/foto de perfil.png"></a>
                 <a href="#"><i class='bx bxs-shopping-bag'></i></a>
             </div>
+            <button onclick="abrir_menu()" class="menu">
+                <i class="bx bx-menu"></i>
+            </button>
         </div>
-        <nav>
-            <ul>
-                <a href="">Home</a>
-                <a href="">Catálogo</a>
-                <a href="">Sobre nós</a>
-            </ul>
-        </nav>
     </header>
+    <nav>
+        <ul>
+            <a href="">Home</a>
+            <a href="">Catálogo</a>
+            <a href="">Sobre nós</a>
+            <a class="mobile-only-links" href="#"><img src="img/foto de perfil.png"></a>
+            <a class="mobile-only-links" href="#"><i class='bx bxs-shopping-bag'></i></a>
+        </ul>
+    </nav>
+    <main>
+        <div class="main-banner">
+            <img src="img/placeholder.webp" alt="">
+            <div class="sliders">
+                <div class="slider-buttons"></div>
+                <div class="slider-buttons"></div>
+                <div class="slider-buttons"></div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function abrir_menu() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
