@@ -136,21 +136,6 @@ nav ul a {
     position: relative
 }
 
-nav>ul>a:not(".mobile-only-links")::after {
-    content: '';
-    position: absolute;
-    left: 5px;
-    bottom: 1px;
-    width: 0%;
-    height: 2px;
-    background-color: var(--escuro);
-    transition: all .2s ease;
-}
-
-nav ul a:not(".mobile-only-links"):hover::after {
-    width: 85%;
-}
-
 .mobile-only-links {
     display: none;
 }
@@ -303,4 +288,38 @@ main {
         margin-top: 10px;
     }
 
+}
+
+@media (max-width: 320px) {
+    nav.active {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        transform: translateX(0px);
+    }
+
+    .mobile-only-links {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 10%;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--escuro);
+    }
+
+    .mobile-only-links i {
+        font-size: 1.7rem;
+        color: var(--escuro);
+        border: 1px solid var(--escuro);
+        border-radius: 100%;
+        padding: 6px;
+    }
+
+    .mobile-only-links.perfil-link>img {
+        position: relative;
+        display: block;
+        width: 30px;
+        border: 2px solid var(--escuro);
+        border-radius: 100%;
+    }
 }
