@@ -27,6 +27,7 @@ body {
 }
 
 header {
+    position: relative;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -38,11 +39,9 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* Mantenha isso */
     color: white;
     background-color: var(--escuro);
     position: relative;
-    /* Adicione isso para referência de posicionamento */
 }
 
 .logo-container {
@@ -80,7 +79,6 @@ header {
 
 .searchbar {
     width: 30%;
-    /* Mantenha a largura */
     height: 75%;
     display: flex;
     padding: 15px 10px 15px 20px;
@@ -89,12 +87,8 @@ header {
     border: 1px solid white;
     border-radius: 8px;
     position: absolute;
-    /* Adicione isso para posicionar em relação ao pai */
     left: 50%;
-    /* Posiciona a esquerda no meio do pai */
     transform: translateX(-50%);
-    /* Move para a esquerda pela metade da largura da searchbar */
-
 }
 
 .searchbar input {
@@ -136,6 +130,10 @@ nav ul a {
     position: relative
 }
 
+nav ul a{
+    position: relative
+}
+
 .mobile-only-links {
     display: none;
 }
@@ -146,14 +144,17 @@ main {
     min-height: 100vh;
 }
 
-.menu {
-    background-color: transparent;
-    border: none;
-    color: white;
+.responsive-buttons {
     display: none;
 }
 
-.menu>i {
+.responsive-buttons button {
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.menu> i {
     font-size: 2.1rem;
 }
 
@@ -185,21 +186,33 @@ main {
 @media (max-width: 768px) {
     .header-links {
         display: none;
-        /* Oculta os links no modo mobile */
     }
-
     nav {
         display: flex;
-        transform: translateX(-900px);
-        transition: all .3s ease;
-        border-bottom-right-radius: 8px;
+        flex-direction: column;
+        transition: transform 0.3s ease; 
+        border-bottom-left-radius: 8px;
+        position: absolute; 
+        right: 0;
+        top: 100%; 
+        width: 300px; 
+        padding: 20px;
+        transform: translateX(100%);
+        background-color: var(--destaque); 
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
     }
-
+    
     nav.active {
-        width: 300px;
         display: flex;
         flex-direction: column;
-        transform: translateX(0px);
+        transform: translateX(0); /* Move para dentro da tela */
+    }
+
+    .searchbar{
+        display: none;
+    }
+
+    .searchbar.active{
     }
 
 
@@ -250,9 +263,11 @@ main {
         padding: 6px;
     }
 
+
     nav ul {
         width: 100%;
     }
+
 
     nav ul a:not(.mobile-only-links):nth-child(n+2) {
         font-size: clamp(1.5rem, 0.6667rem + 2.7778vw, 2rem);
@@ -280,6 +295,11 @@ main {
         flex-direction: column;
     }
 
+    .responsive-buttons  {
+        display: flex;
+        gap: 25px;
+    }
+
     .menu {
         display: flex;
         cursor: pointer;
@@ -291,10 +311,17 @@ main {
 }
 
 @media (max-width: 320px) {
+    
+    .header-contents{
+        flex-wrap: wrap;
+    }
+
     nav.active {
         width: 100%;
         display: flex;
         flex-direction: column;
+        border-bottom-left-radius: 8px ;
+        border-bottom-right-radius: 8px ;
         transform: translateX(0px);
     }
 

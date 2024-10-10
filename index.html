@@ -21,22 +21,27 @@
             </div>
             <div class="header-links">
                 <a href="#"><img src="img/foto de perfil.png"></a>
-                <a href="#"><i class='bx bxs-cart'></i></a>
+                <a href="#"><i class='bx bx-cart-alt'></i></a>
             </div>
-            <button onclick="abrir_menu()" class="menu">
-                <i class="bx bx-menu"></i>
-            </button>
+            <div class="responsive-buttons">
+                <button onclick="abrir_menu()" class="menu">
+                    <i class="bx bx-menu"></i>
+                </button>
+                <button onclick="abrir_search()" class="menu">
+                    <i class='bx bx-search'></i>
+                </button>
+            </div>
         </div>
+        <nav>
+            <ul>
+                <a class="mobile-only-links perfil-link" href="#"><img src="img/foto de perfil.png"></a>
+                <a class="mobile-only-links cart-link" href="#"><i class='bx bx-cart-alt'></i></a>
+                <a class="current-page" href="">Home</a>
+                <a href="">Catálogo</a>
+                <a href="">Sobre nós</a>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <a class="mobile-only-links perfil-link" href="#"><img src="img/foto de perfil.png"></a>
-            <a class="mobile-only-links cart-link" href="#"><i class='bx bxs-cart'></i></a>
-            <a href="">Home</a>
-            <a href="">Catálogo</a>
-            <a href="">Sobre nós</a>
-        </ul>
-    </nav>
     <main>
         <div class="main-banner">
             <img src="img/placeholder.webp" alt="">
@@ -52,6 +57,10 @@
         function abrir_menu() {
             const nav = document.querySelector('nav');
             nav.classList.toggle('active');
+        }
+        function abrir_search() {
+            const searchbar = document.querySelector('.searchbar');
+            searchbar.classList.toggle('active');
         }
     </script>
 </body>
