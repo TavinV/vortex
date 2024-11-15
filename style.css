@@ -241,37 +241,51 @@ main {
 }
 
 .promotion-cards {
+    width: 90%;
     display: flex;
     justify-content: center;
-    gap: 100px; /* Espaçamento entre os cards */
-    flex-wrap: wrap; /* Faz com que os cards que não couberem se movam para a linha seguinte */
+    gap: 50px;
+    /* Espaçamento entre os cards */
+    flex-wrap: wrap;
+    /* Faz com que os cards que não couberem se movam para a linha seguinte */
 }
 
 .card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 500px;
+    max-width: 350px;
+    width: 100%;
     border-radius: 10px;
     overflow: hidden;
+    border: 2px solid #c5c5c5;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: white;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     padding: 40px;
     margin-bottom: 20px;
-}
-
-.card:hover {
-    transform: translateY(-10px); 
+    scale: 0.87;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+.card:hover {
+    transform: translateY(-10px);
+    color: var(--destaque);
+    border-color: var(--destaque);
+    box-shadow: 0 1px 16px var(--destaque);
+}
+
+.img-container {
+    width: 95%;
+    height: 400px;
+    display: inline-flex;
+    justify-content: center;
+}
 
 .card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+    height: 100%;
+    width: auto;
     box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
 }
 
@@ -281,9 +295,8 @@ main {
 }
 
 .card-content h3 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin-bottom: 10px;
-    color: #333;
 }
 
 .card-content p {
@@ -291,6 +304,7 @@ main {
     margin-bottom: 15px;
     color: #666;
 }
+
 .products {
     width: 100%;
     gap: 90px;
@@ -300,12 +314,12 @@ main {
     align-items: center;
 }
 
-.list-products{
+.list-products {
     width: 90%;
     columns: 250px;
 }
 
-.list-products img{
+.list-products img {
     width: 100%;
     padding: 5px;
     background-color: #ccc;
