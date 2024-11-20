@@ -564,11 +564,24 @@ h1 .vrtx_span {
     justify-content: center;
     align-items: center;
     border-right: 0.2em solid var(--destaque);
+    position: relative;
 }
 
 .vrtx-product-card .img-container img {
     width: 100%;
     height: auto;
+}
+
+.vrtx-product-card .img-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgb(255, 111, 0);
+    background: linear-gradient(0deg, rgba(255, 111, 0, 1) 0%, rgba(255, 255, 255, 0) 30%);
+    opacity: 80%;
 }
 
 .vrtx-product-info {
