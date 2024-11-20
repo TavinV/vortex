@@ -244,19 +244,20 @@ main {
     width: 90%;
     display: flex;
     justify-content: center;
-    gap: 100px;
-    /* Espaçamento entre os cards */
-    flex-wrap: nowrap;
+    gap: 40px;
+    flex-wrap: wrap;
+    /* Deixe os cards se moverem para a próxima linha em telas menores */
     position: relative;
     margin-top: 10px;
-    /* Faz com que os cards que não couberem se movam para a linha seguinte */
 }
 
 .promotion-cards .card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 300px;
+    justify-content: flex-start;
+    align-items: center;
+    /* Centraliza o conteúdo */
+    max-width: 300px;
     border-radius: 10px;
     border: 2px solid #c5c5c5;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -264,6 +265,7 @@ main {
     transition: all 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     margin-bottom: 20px;
+    padding: 10px;
 }
 
 .card:hover {
@@ -271,18 +273,27 @@ main {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+.card h1 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #333;
+}
+
 .card .img-container {
-    width: 100%;
-    height: 25em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 90%;
+    /* Define a largura da imagem para 90% */
+    position: relative;
+    overflow: hidden;
+    /* Impede que a imagem ultrapasse os limites do contêiner */
 }
 
 .card img {
-    width: auto;
-    height: 90%;
+    width: 90%;
+    height: auto;
+    /* Mantém a altura proporcional à largura */
     object-fit: cover;
+    /* Faz a imagem preencher o espaço sem distorcer */
     box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
 }
 
@@ -333,7 +344,7 @@ main {
 }
 
 .products svg path {
-    fill: #0996A7;
+    fill: white;
     stroke: 1px var(--destaque);
     stroke-width: 8px;
     stroke-linejoin: round;
@@ -905,19 +916,9 @@ footer {
         position: relative;
     }
 
-    .promotion-cards .card .img-container::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        background: rgb(28, 28, 45);
-        background: linear-gradient(354deg, rgba(28, 28, 45, 1) 0%, rgba(255, 255, 255, 0) 40%);
-        border-radius: 8px;
-        opacity: 60%;
+    .promotion-cards .card img {
+        width: 90%;
+        height: auto;
     }
 
     .vortex-exclusive .products-grid {
