@@ -312,6 +312,7 @@ main {
 }
 
 .promotion-cards .card h1 {
+    font-size: 1.4em;
     transform: translateY(-40px);
 }
 
@@ -360,9 +361,6 @@ h1 .vrtx_span {
     gap: 5px;
 }
 
-/*
-******************************
-*/
 .product-card {
     background-color: #F8C901;
     max-width: 290px;
@@ -500,9 +498,6 @@ h1 .vrtx_span {
     border: 1px solid var(--destaque);
 }
 
-/*
-******************************
-*/
 .catalog-container {
     width: 90%;
     padding: 20px 0px;
@@ -516,8 +511,123 @@ h1 .vrtx_span {
     text-decoration: underline;
 }
 
+.vortex-exclusive {
+    width: 100%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.vortex-exclusive h1 {
+    font-size: clamp(1.8rem, 5vw, 3em);
+    /* A fonte será no mínimo 1.8rem, idealmente 5% da largura da tela, e no máximo 3em */
+    font-weight: 800;
+}
+
+.vortex-exclusive .products-grid {
+    width: 100%;
+    margin-top: 3%;
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    justify-content: end;
+    gap: 2%;
+}
+
+.vortex-exclusive .products-grid .vrtx-product-card {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border: 0.2em solid var(--destaque);
+    border-radius: 0.5em;
+    flex-wrap: wrap;
+    scale: 0.9;
+    /* Permite quebra para telas menores */
+}
+
+.vrtx-product-card .img-container {
+    width: 48%;
+    /* Ajusta dinamicamente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 0.2em solid var(--destaque);
+}
+
+.vrtx-product-card .img-container img {
+    width: 100%;
+    height: auto;
+}
+
+.vrtx-product-info {
+    gap: 10px;
+    width: 48%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.vrtx-product-info h1 {
+    font-size: clamp(1.4rem, 3vw, 3em);
+}
+
+.vrtx-product-info h2 {
+    font-size: clamp(1.3rem, 2vw, 2em);
+}
+
+.vrtx-product-info .mid {
+    /* A fonte será no mínimo 1rem, idealmente 2% da largura da tela, e no máximo 2em */
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    font-size: 2em;
+}
+
+.vrtx-product-info .mid h2 {
+    font-size: clamp(1em, 2vw, 2em);
+}
+
+.vrtx-product-info .mid span {
+    font-size: clamp(1.3rem, 1.5vw, 1.2em);
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: start;
+    border: 0.2em solid var(--escuro);
+    border-radius: 0.5em;
+}
+
+.vrtx-product-info .mid span strong {
+    margin-left: 0.5em;
+}
+
+.vrtx-product-info .mid button {
+    padding: 0.3em;
+    border: none;
+    outline: none;
+    background-color: var(--escuro);
+    color: white;
+    font-size: clamp(1em, 1.5vw, 1.2em);
+    /* A fonte será no mínimo 0.8rem, idealmente 1.5% da largura da tela, e no máximo 1.2em */
+    border-radius: 0.3em;
+    transition: all .3s ease;
+    font-weight: bold;
+}
+
+.vrtx-product-info .mid button:hover {
+    transform: scale(1.02);
+}
+
+.vrtx-product-info .mid button:active {
+    transform: scale(1);
+}
+
 footer {
-    margin-top: 600px;
+    margin-top: 300px;
     background-color: var(--escuro);
     color: #fff;
     padding: 40px 20px 8px 20px;
@@ -759,6 +869,7 @@ footer {
     }
 
     .promotion-cards {
+        margin-top: 200px;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -770,30 +881,69 @@ footer {
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-around;
+        justify-content: center;
+        position: relative;
+    }
+
+    .promotion-cards .card h1 {
+        position: absolute;
+        top: -30px;
+        text-align: left;
+        width: 100%;
+        font-size: 2.3em;
+        display: none;
+    }
+
+    .promotion-bg {
+        top: 90px;
     }
 
     .promotion-cards .card .img-container {
-        width: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
     }
 
-    .promotion-cards .card .card-content {
-        width: 50%;
+    .promotion-cards .card .img-container::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
         height: 100%;
+        background: rgb(28, 28, 45);
+        background: linear-gradient(354deg, rgba(28, 28, 45, 1) 0%, rgba(255, 255, 255, 0) 40%);
+        border-radius: 8px;
+        opacity: 60%;
+    }
+
+    .vortex-exclusive .products-grid {
+        gap: 30px;
+    }
+
+    .vortex-exclusive .products-grid .vrtx-product-card {
+        scale: 1;
         display: flex;
         flex-direction: column;
+    }
+
+    .vrtx-product-card .img-container {
+        width: 100%;
+        border: none;
+        display: flex;
+        justify-content: center;
         align-items: center;
-        justify-content: space-around;
     }
 
-    .promotion-cards .card .card-content h3 {
-        font-size: 1em;
-        display: inline;
-        text-align: center;
+    .vrtx-product-card .img-container img {
+        width: 90%;
     }
 
-    .promotion-cards .card .card-content p {
-        display: inline;
+    .vrtx-product-info {
+        width: 100%;
     }
 
     .responsive-buttons {
