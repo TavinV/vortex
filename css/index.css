@@ -365,7 +365,7 @@ h1 .vrtx_span {
 .list-products {
     display: flex;
     margin-top: 120px;
-    width: 90%;
+    width: 95%;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -388,6 +388,35 @@ h1 .vrtx_span {
     padding-bottom: 20px;
 }
 
+.product-card.vrtx-exclusive {
+    border: 1px solid var(--destaque)
+}
+
+.product-card.vrtx-exclusive .card-header {
+    position: relative;
+}
+
+.product-card.vrtx-exclusive .card-header>h4 {
+    position: absolute;
+    z-index: 2;
+    color: var(--destaque);
+    font-size: 1.3em;
+    font-weight: 700;
+    padding: 20px;
+    left: 10px;
+    top: 0;
+}
+
+.product-card.vrtx-exclusive .card-header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(255, 111, 0, 0.705), rgba(0, 0, 0, 0) 20%);
+}
+
 .card-header {
     display: flex;
     height: 20rem;
@@ -400,8 +429,8 @@ h1 .vrtx_span {
     display: flex;
     flex-direction: column;
     width: 100%;
-    font-size: 1.3em;
-    gap: 10px;
+    font-size: 1.2em;
+    gap: 5px;
     justify-content: space-between;
 }
 
@@ -424,7 +453,7 @@ h1 .vrtx_span {
     position: relative;
 }
 
-.product-image.long{
+.product-image.long {
     height: auto;
     width: 100%;
     max-width: 300px;

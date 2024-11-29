@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vortex</title>
     <link rel="icon" href="img/logo.svg">
-    <link rel="stylesheet" href="css/quemsomos.css">
+    <link rel="stylesheet" href="css/catalogo.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
 </head>
 <body>
@@ -52,7 +52,64 @@
         </nav>
     </header>
     
-    <main></main>
+    <main>
+        <section class="categorias">
+            <ul>
+                <li><a href="#"> <b>Vortex Exclusive</b> </a></li>
+                <li><a href="#">Tênis</a></li>
+                <li><a href="#">Joelheiras</a></li>
+                <li><a href="#">Orteses</a></li>
+                <li><a href="#">Manguitos</a></li>
+            </ul>
+            <aside class="filters">
+                <h2>Todos os Tênis</h2>
+
+                <div class="marca">
+                    <h3>Marca</h3>
+                    <div class="marcas">
+                        <span>
+                            <input type="checkbox"> Nike (20)
+                        </span>
+                        <span>
+                            <input type="checkbox"> Adidas (62)
+                        </span>
+                        <span>
+                            <input type="checkbox"> Olympikus (15)
+                        </span>
+                        <span>
+                            <input type="checkbox"> Asics (23)
+                        </span>
+                    </div>
+                </div>
+
+                <div class="tamanho">
+                    <h3>Tamanho</h3>
+                    <select id="select-tamanho">
+                        <option value="" disabled selected>Selecione um tamanho</option>
+                        <option value="36">36</option>
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                    </select>
+                </div>
+
+
+                <div class="faixa-preco">
+                    <h3>Preço máximo</h3>
+                    <span>
+                        <input type="range" id="input-range" value="0" min="25" max="500" step="25">
+                        <p id="valor-range">R$ 25,00</p>
+                    </span>
+                </div>
+
+            </aside>
+        </section>
+    </main>
 
     <footer>
         <div class="footer-container">
@@ -106,6 +163,22 @@
             const searchbar = document.querySelector('.searchbar');
             searchbar.classList.toggle('active');
         }
+
+        const inputRange = document.getElementById('input-range');
+        const valorRange = document.getElementById('valor-range');
+
+        inputRange.addEventListener('input', () => {
+            // Atualiza o texto do parágrafo
+            valorRange.textContent = `R$ ${inputRange.value},00`;
+
+            // Calcula a porcentagem preenchida
+            const percent = ((inputRange.value - inputRange.min) / (inputRange.max - inputRange.min)) * 100;
+
+            // Atualiza o estilo de fundo com o gradiente dinâmico
+            inputRange.style.background = `linear-gradient(to right, var(--destaque) ${percent}%, #d3d3d3 ${percent}%)`;
+        });
+
+
     </script>
 </body>
 </html>
