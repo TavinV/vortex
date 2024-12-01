@@ -58,12 +58,14 @@
                 <a href="">
                     <img id="banner-slider-1" src="img/banner/banner1.png" alt="">
                 </a>
+                <a href="">
+                    <img id="banner-slider-2" src="img/banner/Inserir um título (1920 x 400 px).png" alt="">
+                </a>
             </div>
 
             <div class="banner-nav">
-                <a href="#banner-slider-1"></a>
-                <a href="#banner-slider-2"></a>
-                <a href="#banner-slider-3"></a>
+                <a href="#"></a>
+                <a href="#"></a>
             </div>
         </section>
         
@@ -408,6 +410,54 @@
             const searchbar = document.querySelector('.searchbar');
             searchbar.classList.toggle('active');
         }
+
+        const bannerSlider = document.querySelector('.banner-img-slider');
+    const banners = document.querySelectorAll('.banner-img-slider img');
+    const navLinks = document.querySelectorAll('.banner-nav a');
+
+    let currentIndex = 0; // Começa no primeiro banner
+    const bannerCount = banners.length; // Número total de banners
+    const transitionTime = 10000; // Tempo de transição (10 segundos)
+
+    // Função para alternar os banners
+    function switchBanner(index) {
+        // Calcula a posição horizontal do banner atual
+        const bannerWidth = bannerSlider.clientWidth;
+
+        // Rola suavemente para o banner correspondente
+        bannerSlider.scrollTo({
+            left: index * bannerWidth,
+            behavior: 'smooth'
+        });
+
+        // Atualiza o estado dos pontos de navegação
+        navLinks.forEach((link, i) => {
+            link.style.backgroundColor = i === index ? '#999' : '#ccc';
+        });
+    }
+
+    // Alternância automática com intervalo
+    function startAutoSwitch() {
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % bannerCount; // Alterna para o próximo banner, retornando ao primeiro no final
+            switchBanner(currentIndex);
+        }, transitionTime);
+    }
+
+    // Inicia o foco inicial e o intervalo automático
+    switchBanner(currentIndex);
+    startAutoSwitch();
+
+    // Adiciona navegação manual
+    navLinks.forEach((link, index) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // Evita o comportamento padrão
+            currentIndex = index; // Atualiza o índice atual
+            switchBanner(currentIndex); // Alterna para o banner clicado
+        });
+    });
+
     </script>
+    
 </body>
 </html>
